@@ -9,11 +9,13 @@ import SwiftUI
 
 struct SwiftUIView: View {
     @ObservedObject var viewModel = exploreViewModel()
+   
     var body: some View {
         VStack{
+            SearchBar(text: $viewModel.searchText)
             ScrollView{
                 LazyVStack{
-                    ForEach(viewModel.users) {
+                    ForEach(viewModel.searchableUsers) {
                         user in
                         UserRowView(user: user)
                     }
