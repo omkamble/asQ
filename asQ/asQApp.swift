@@ -11,7 +11,10 @@ import SwiftUI
 struct asQApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView()
+            }
+            
         }
-    }
+        }
 }
