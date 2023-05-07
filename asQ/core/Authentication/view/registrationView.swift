@@ -17,6 +17,9 @@ struct registrationView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         VStack {
+            
+            NavigationLink(destination: photoSelectorView(), isActive: $viewModel.didAuthUser, label: { })
+            
             VStack(alignment: .leading) {
                 HStack {Spacer()}
                 Text("Get Started")

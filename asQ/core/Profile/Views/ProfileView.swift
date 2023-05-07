@@ -29,7 +29,9 @@ struct ProfileView: View {
            
             Spacer()
         }
+        
     }
+    
 }
 
 struct ProfileView_Previews: PreviewProvider {
@@ -52,7 +54,7 @@ extension ProfileView {
                         .resizable()
                         .frame(width: 20, height: 16)
                         .foregroundColor(.white)
-                        .offset(x: 16, y: 12)
+                        .offset(x: 16, y: -4)
                 }
                 
                 Circle()
