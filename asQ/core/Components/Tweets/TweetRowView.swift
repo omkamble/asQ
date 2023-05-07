@@ -17,15 +17,17 @@ struct TweetRowView: View {
                     .foregroundColor(Color(.systemBlue))
                 
                 VStack(alignment: .leading, spacing: 4){
-                    HStack{
-                        Text("bruce wayne")
-                            .font(.subheadline).bold()
-                        Text("@batman")
-                            .foregroundColor(.gray)
-                            .font(.caption)
-                        Text("2w")
-                            .foregroundColor(.gray)
-                            .font(.caption)
+                    if let user = tweet.user {
+                        HStack{
+                            Text(user.fullname)
+                                .font(.subheadline).bold()
+                            Text(user.username)
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                            Text("2w")
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                        }
                     }
                     
                     Text(tweet.caption)
