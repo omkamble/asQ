@@ -25,7 +25,7 @@ struct loginView: View {
             }
             .frame(height: 260)
             .padding(.leading)
-            .background(Color(.systemBlue))
+            .background(Color(.purple))
             .foregroundColor(.white)
             
             VStack(spacing: 40) {
@@ -42,7 +42,7 @@ struct loginView: View {
                     Text("Reset Password")
                     
                 } label: {
-                    Text("forgot pasword ?")
+                    Text("forgot password ?")
                         .font(.caption)
                         .fontWeight(.semibold)
                         .foregroundColor(Color(.systemBlue))
@@ -59,7 +59,7 @@ struct loginView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 340, height: 50)
-                    .background(Color(.systemBlue))
+                    .background(Color(.purple))
                     .clipShape(Capsule())
                     .padding()
             }

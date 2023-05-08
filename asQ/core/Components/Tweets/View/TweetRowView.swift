@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct TweetRowView: View {
-    let tweet : Tweet
+    @ObservedObject var viewModel: tweetRowViewModel
+    
+    init(tweet: Tweet) {
+        self.viewModel = tweetRowViewModel(tweet: tweet)
+    }
+    
     var body: some View {
         VStack(alignment: .leading){
             HStack(alignment: .top, spacing: 12) {
@@ -17,7 +22,7 @@ struct TweetRowView: View {
                     .foregroundColor(Color(.systemBlue))
                 
                 VStack(alignment: .leading, spacing: 4){
-                    if let user = tweet.user {
+                    if let user = viewModel.tweet.user {
                         HStack{
                             Text(user.fullname)
                                 .font(.subheadline).bold()
@@ -30,7 +35,7 @@ struct TweetRowView: View {
                         }
                     }
                     
-                    Text(tweet.caption)
+                    Text(viewModel.tweet.caption)
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                 }
@@ -49,10 +54,12 @@ struct TweetRowView: View {
                
 
                 Button{
-                    
+                    viewModel.tweet.didLike ?? false ? viewModel.unlikeTweet() : viewModel.likeTweet()
                 } label: {
-                    Image(systemName: "heart")
+                    Image(systemName: viewModel.tweet.didLike ?? false ? "heart.fill" : "heart")
+                    
                         .font(.subheadline)
+                        .foregroundColor(viewModel.tweet.didLike ?? false ? .red : .gray)
                 }
                 Spacer()
 

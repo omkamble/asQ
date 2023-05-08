@@ -7,13 +7,14 @@
 
 import SwiftUI
 import Firebase
-
+import IQKeyboardManagerSwift
 @main
 struct asQApp: App {
     
     @StateObject var viewModel = AuthViewModel()
     init() {
         FirebaseApp.configure()
+        IQKeyboardManager.shared.enable = true
     }
     
     var body: some Scene {
